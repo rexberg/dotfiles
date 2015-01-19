@@ -1,0 +1,39 @@
+background no
+use_xft yes
+xftfont Pragmata Pro:bold:size=8
+xftalpha 0.5
+own_window yes
+own_window_colour 333333
+own_window_transparent yes
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+use_spacer right
+#font snap-7
+text_buffer_size 2048 
+alignment top_left
+gap_x 0 
+gap_y 3
+use_spacer left
+pad_percents 2
+
+# --- Colours, Sizes, Fonts & Margins --- #
+update_interval 0.33
+stippled_borders 0
+minimum_size 1366 3
+maximum_width 1366 2
+border_width 0 
+#default_color 5e7175
+default_color 888888
+# --- Text --- #
+draw_outline no
+draw_borders no
+#font -*-profont-*-*-*-11-*-*-*-*-*-*-* 
+uppercase no
+draw_shades no 
+color1 ffffff
+color2 aaaaaa
+color3 d64937
+
+TEXT
+${offset 5}${color3}[${color}${color1} host:${color} ${nodename_short}${goto  80}${color3}  | ${color}${color1}uptime:${color} ${uptime_short}${goto  210}${color3}| ${color} ${color1}cpu:${color} ${cpu cpu0}%${goto  280}${color3}  | ${color} ${color1}mem:${color} ${memperc}%${goto 370}${color3}  |  ${color1}hdd:${color} ${fs_free /}/${fs_size /}${color3}  |  ${goto 540}${color}${color1} io: ${color}${diskio}${goto 610}${color3}  |  ${goto 630}${color1}down: ${color}${downspeed eth0}${goto 730}${color3} |  ${color1}up: ${color}${upspeed eth0}${goto 830}${color3} |  ${color1}pacman: ${color}${execi 60 ~/.scripts/.checkpkg.sh}${goto 980}${color3}]${color}${alignr 5}${color3} ${goto 1170}[ ${color}${color1}wks:${color} $desktop/$desktop_number  ${color3}| ${color}${time %a %b%e, %H:%M}${color3} ]${color}
