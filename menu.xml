@@ -166,7 +166,18 @@
         </execute>
     </action>
   </item>
-  
+
+  <item label="Hibernate">
+    <action name="Execute">
+      <prompt>
+        Are you sure you want to hibernate?
+      </prompt>
+      <execute>
+          sudo systemctl hibernate
+      </execute>
+    </action>
+  </item>
+
   <item label="Shutdown">
     <action name="Execute">
         <prompt>

@@ -181,9 +181,19 @@
         <command>urxvt</command>
       </action>
     </keybind>
-    <keybind key="Super_L">
+    <keybind key="Menu">
       <action name="ShowMenu">
         <menu>root-menu</menu>
+      </action>
+    </keybind>
+    <keybind key="A-Left">
+      <action name="Execute">
+          <command>xbacklight +10</command>
+      </action>
+    </keybind>
+    <keybind key="A-Right">
+      <action name="Execute">
+          <command>xbacklight -10</command>
       </action>
     </keybind>
     <keybind key="C-A-l">
