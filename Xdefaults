@@ -1,4 +1,5 @@
-URxvt.font: xft:PragmataPro:pixelsize=13
+!URxvt.font: xft:PragmataPro:pixelsize=12
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=12
 URxvt.title: Terminal
 URxvt.scrollBar: false
 URxvt.depth: 32
@@ -6,7 +7,7 @@ URxvt.background: rgba:1111/1111/1111/dddd
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: false
 URxvt.perl-ext-common: default,clipboard
-URxvt.geometry: 66x26
+URxvt.geometry: 82x32
 URxvt.iconFile: /usr/share/icons/Numix-Circle/scalable/apps/terminal.svg
 URxvt.keysym.Control-Up:   \033[1;5A
 URxvt.keysym.Control-Down:    \033[1;5B
