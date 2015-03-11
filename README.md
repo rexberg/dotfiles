@@ -1,3 +1,2 @@
-<h1>Dot files for openbox on archlinux</h1>
-
-![alt tag](https://github.com/HeadlessChild/dot-files/blob/master/openbox/screenshot/dot-files-screen.png)
+<h1>Dot files for linux workstations.</h1>
+Feel free to copy and use it on your own.
