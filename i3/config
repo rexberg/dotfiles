@@ -13,6 +13,7 @@
 #exec compton &
 exec eval $(cat ~/.fehbg) &
 exec xscreensaver -no-splash &
+exec mopidy &
 ##
 
 set $mod Mod4
@@ -147,15 +148,15 @@ bindsym $mod+r mode "resize"
 # xscreensaver
 bindsym $mod+l exec "xscreensaver-command -lock"
 
-# spotify
-for_window [class="^Spotify$"] floating enable
-bindsym $mod+F4 exec "playerctl play-pause"
-bindsym $mod+F5 exec "playerctl previous"
-bindsym $mod+F6 exec "playerctl next"
+# spotify + ncmpcpp
+#for_window [class="^Spotify$"] floating enable
+bindsym $mod+F4 exec "ncmpcpp toggle"
+bindsym $mod+F5 exec "ncmpcpp prev"
+bindsym $mod+F6 exec "ncmpcpp next"
 
 # volume
-bindsym $mod+Prior exec "amixer -q set Headphone 5%+ unmute"
-bindsym $mod+Next exec "amixer -q set Headphone 5%- unmute"
+bindsym $mod+Prior exec "amixer -q set Master 5%+ unmute"
+bindsym $mod+Next exec "amixer -q set Master 5%- unmute"
 bindsym $mod+Pause exec "pactl set-sink-mute 0 toggle"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
