@@ -6,7 +6,9 @@ URxvt.depth: 32
 !URxvt.background: rgba:1111/1111/1111/dddd
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: false
-URxvt.perl-ext-common: default,clipboard
+URxvt.perl-ext-common: default,clipboard,matcher,readline
+URxvt.urlLauncher: /opt/google/chrome/google-chrome
+URxvt.matcher.button: 1
 URxvt.geometry: 92x27
 URxvt.iconFile: /usr/share/icons/Numix-Circle/scalable/apps/terminal.svg
 URxvt.keysym.Control-Up:   \033[1;5A
