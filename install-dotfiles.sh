@@ -67,9 +67,12 @@ sudo apt-get update && sudo apt-get install -y spotify-client
 ###################################################
 
 ############ Installing dmenu_extended ############
+echo "Installing dmenu-extended..."
 wget https://github.com/markjones112358/dmenu-extended/archive/master.zip
 unzip master.zip
-sudo python dmenu-extended-master/setup.py install
+cd dmenu-extendend-master
+sudo python setup.py install
+cd -
 sudo rm -rf dmenu-extended-master master.zip
 ###################################################
 
@@ -78,4 +81,5 @@ echo "Installing oh-my-zsh..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp -v misc/headless.zsh-theme ~/.oh-my-zsh/themes
 chsh -s /bin/zsh
+echo "All done!"
 ##################################################
