@@ -11,6 +11,7 @@ cp -v i3/config ~/.i3
 cp -v i3/i3blocks.conf ~/.i3blocks.conf
 cp -v misc/Xdefauls ~/.Xdefaults
 cp -v misc/zshrc ~/.zshrc
+cp -v misc/vimrc ~/.vimrc
 #################################################
 
 ############## Installing packages ##############
