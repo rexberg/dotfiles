@@ -66,8 +66,8 @@ new_window              pixel $bordersize
 #######################################################################
 
 bindsym                 $mod+Return exec urxvt
-bindsym			$mod+d exec dmenu
-bindsym			$mod+t exec ~/bin/i3lock.sh
+bindsym			$mod+d exec dmenu_extended_run
+bindsym			$mod+l exec ~/bin/i3lock.sh
 
 #######################################################################
 #                             i3 bindings                             #
@@ -96,11 +96,11 @@ bindsym                 $mod+F4 exec "playerctl play-pause"
 #                           focus bindings                            #
 #######################################################################
 
-bindsym                 $mod+a focus parent
-bindsym                 $mod+h focus left
-bindsym                 $mod+j focus down
-bindsym                 $mod+k focus up
-bindsym                 $mod+l focus right
+#bindsym                 $mod+a focus parent
+#bindsym                 $mod+h focus left
+#bindsym                 $mod+j focus down
+#bindsym                 $mod+k focus up
+#bindsym                 $mod+l focus right
 
 bindsym                 $mod+Left focus left
 bindsym                 $mod+Down focus down
@@ -126,10 +126,10 @@ bindsym                 $mod+Shift+0 move container to workspace 10: mus
 #                          movement bindings                          #
 #######################################################################
 
-bindsym                 $mod+Shift+h move left
-bindsym                 $mod+Shift+j move down
-bindsym                 $mod+Shift+k move up
-bindsym                 $mod+Shift+l move right
+#bindsym                 $mod+Shift+h move left
+#bindsym                 $mod+Shift+j move down
+#bindsym                 $mod+Shift+k move up
+#bindsym                 $mod+Shift+l move right
 
 bindsym                 $mod+Shift+Left move left
 bindsym                 $mod+Shift+Down move down
@@ -145,8 +145,8 @@ bindsym                 $mod+Shift+Right move right
 bindsym                 $mod+e layout toggle split
 bindsym                 $mod+f fullscreen
 
-bindsym                 $mod+ctrl+l split h
-bindsym                 $mod+ctrl+j split v
+bindsym                 $mod+h split h
+bindsym                 $mod+v split v
 
 bindsym                 $mod+Shift+s floating toggle
 bindsym                 $mod+s focus mode_toggle
@@ -214,15 +214,14 @@ bar {
 #                         window assignments                          #
 #######################################################################
 
-for_windows [class="^.*"] border pixel 0
+#for_windows [class="^.*"] border pixel 0
 assign [class="Spotify"] 10: mus
 
 #######################################################################
 #			    gap settings			      #
 #######################################################################
 
-gaps inner 50
-gaps outer 20
-for_window [class="^.*"] border pixel 0
+gaps inner 5
+gaps outer 5
 #for_window [class="URxvt"] border pixel 5
 #for_window [class="Subl3"] gaps outer 70
