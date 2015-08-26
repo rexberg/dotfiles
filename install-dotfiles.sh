@@ -58,22 +58,15 @@ sudo apt-get update && sudo apt-get install -y google-chrome-stable
 ###################################################
 
 ############### Installing Spotify ################
-echo "Adding Spotify repository..."
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-echo "Adding Spotify repository signing key..."
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
-echo "Updating deb repositories and installing spotify-client..."
-sudo apt-get update && sudo apt-get install -y spotify-client
-###################################################
-
-############ Installing dmenu_extended ############
-echo "Installing dmenu-extended..."
-wget https://github.com/markjones112358/dmenu-extended/archive/master.zip
-unzip master.zip
-cd dmenu-extendend-master
-sudo python setup.py install
-cd -
-sudo rm -rf dmenu-extended-master master.zip
+#echo "Adding Spotify repository..."
+#echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+#echo "Adding Spotify repository signing key..."
+#sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
+#echo "Updating deb repositories and installing spotify-client..."
+#sudo apt-get update && sudo apt-get install -y spotify-client
+wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.11.131.gf4d47cb0_amd64.deb
+sudo dpkg -i spotify*.deb
+sudo rm -f spotify*.deb
 ###################################################
 
 #################### Oh My Zsh ###################
@@ -81,5 +74,16 @@ echo "Installing oh-my-zsh..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp -v misc/headless.zsh-theme ~/.oh-my-zsh/themes
 chsh -s /bin/zsh
-echo "All done!"
 ##################################################
+
+############ Installing dmenu_extended ############
+echo "Installing dmenu-extended..."
+cd ~
+wget https://github.com/markjones112358/dmenu-extended/archive/master.zip
+unzip ~/master.zip
+cd dmenu-extended-master
+sudo python setup.py install
+cd ..
+sudo rm -rf dmenu-extended-master master.zip
+echo "All done!"
+###################################################
