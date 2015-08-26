@@ -214,4 +214,15 @@ bar {
 #                         window assignments                          #
 #######################################################################
 
+for_windows [class="^.*"] border pixel 0
 assign [class="Spotify"] 10: mus
+
+#######################################################################
+#			    gap settings			      #
+#######################################################################
+
+gaps inner 50
+gaps outer 20
+for_window [class="^.*"] border pixel 0
+#for_window [class="URxvt"] border pixel 5
+#for_window [class="Subl3"] gaps outer 70
