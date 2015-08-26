@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 ######## Creating dirs and moving files ########
 echo "Creating directories and moving files..."
 mkdir -v ~/bin
@@ -8,11 +10,12 @@ cp -v wallpapers/icon.png ~/.xlock
 cp -v i3/config ~/.i3
 cp -v i3/i3blocks.conf ~/.i3blocks.conf
 cp -v misc/Xdefauls ~/.Xdefaults
+cp -v misc/zshrc ~/.zshrc
 #################################################
 
 ############## Installing packages ##############
 echo "Installing packages (vim, i3-gaps deps, urxvt, font-awesome, i3-utils)..."
-sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev pkg-config i3blocks i3lock ruby-ronn fonts-font-awesome rxvt-unicode-256color vim scrot
+sudo apt-get install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev pkg-config i3blocks i3lock ruby-ronn fonts-font-awesome rxvt-unicode-256color vim scrot zsh
 #################################################
 
 ######## Compiling and installing i3-gaps ########
@@ -24,6 +27,8 @@ echo "Compiling i3-gaps..."
 make
 echo "Installing i3-gaps..."
 sudo make install
+echo "Chaning back to previous directory..."
+cd -
 ##################################################
 
 ############ Fixing urxvt copy/paste ############
@@ -56,3 +61,10 @@ sudo apt-key add --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
 echo "Updating deb repositories and installing spotify-client..."
 sudo apt-get update && sudo apt-get install spotify-client
 ###################################################
+
+#################### Oh My Zsh ###################
+echo "Installing oh-my-zsh..."
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp -v misc/headless.zsh-theme ~/.oh-my-zsh/themes
+chsh -s /bin/zsh
+##################################################
