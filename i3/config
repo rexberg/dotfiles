@@ -181,7 +181,8 @@ bindsym                 $mod+r mode "resize"
 #exec "nitrogen --restore"
 #exec "pulseaudio --start"
 #exec "xrdb ~/.Xresources"
-exec "dunst &"
+#exec "dunst &"
+exec ~/.fehbg
 
 #######################################################################
 #                                 bar                                 #

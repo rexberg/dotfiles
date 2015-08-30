@@ -93,7 +93,7 @@ echo "All done!"
 ##### Installing pip (python package manager) #####
 echo "Installing pip (python package manager)..."
 wget https://bootstrap.pypa.io/get-pip.py
-python get-pip.py
+sudo python get-pip.py
 rm get-pip.py
 ###################################################
 
@@ -102,11 +102,18 @@ echo "Installing rawinbowstream..."
 sudo pip install rainbowstream
 #fix for rainbowstream crash, cause of the use of sudo
 sudo cp /root/.rainbow_config.json ~/
+sudo chown $UID:$GID ~/.rainbow_config.json
 ###################################################
 
 #################### Oh My Zsh ###################
 echo "Installing oh-my-zsh..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-cp -v misc/headless.zsh-theme ~/.oh-my-zsh/themes
+cp -v ~/dot-files/misc/headless.zsh-theme ~/.oh-my-zsh/themes
 chsh -s /bin/zsh
+##################################################
+
+################### Wallpaper ###################
+mkdir ~/Wallpapers
+cp -v ~/dot-files/wallpapers/7SqL0BC.jpg ~/Wallpapers
+feh --bg-scale ~/Wallpapers/7SqL0BC.jpg
 ##################################################
