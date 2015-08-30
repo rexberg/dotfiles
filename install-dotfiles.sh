@@ -18,7 +18,11 @@ cp -v misc/vimrc ~/.vimrc
 
 ############## Installing packages ##############
 echo "Installing packages (vim, i3-gaps deps, urxvt, font-awesome, i3-utils)..."
-sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev pkg-config i3blocks i3lock ruby-ronn fonts-font-awesome rxvt-unicode-256color vim scrot zsh curl xclip suckless-tools
+sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev \
+libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev \
+libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+pkg-config i3blocks i3lock ruby-ronn fonts-font-awesome rxvt-unicode-256color vim scrot zsh curl \
+xclip suckless-tools weechat
 #################################################
 
 ######## Compiling and installing i3-gaps ########
@@ -66,17 +70,13 @@ sudo apt-get update && sudo apt-get install -y google-chrome-stable
 #sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
 #echo "Updating deb repositories and installing spotify-client..."
 #sudo apt-get update && sudo apt-get install -y spotify-client
-wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.11.131.gf4d47cb0_amd64.deb
+#The offical deb file in spotify's repository doesn't work for Debian Sid, but there are dev pkg's out there...
+current_spotify_version="spotify-client_1.0.11.131.gf4d47cb0_amd64"
+echo "Installing Spotify ($current_spotify_version)"
+wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/$current_spotify_version.deb
 sudo dpkg -i spotify*.deb
 sudo rm -f spotify*.deb
 ###################################################
-
-#################### Oh My Zsh ###################
-echo "Installing oh-my-zsh..."
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-cp -v misc/headless.zsh-theme ~/.oh-my-zsh/themes
-chsh -s /bin/zsh
-##################################################
 
 ############ Installing dmenu_extended ############
 echo "Installing dmenu-extended..."
@@ -89,3 +89,24 @@ cd ..
 sudo rm -rf dmenu-extended-master master.zip
 echo "All done!"
 ###################################################
+
+##### Installing pip (python package manager) #####
+echo "Installing pip (python package manager)..."
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+rm get-pip.py
+###################################################
+
+############ Installing rainbowstream ############
+echo "Installing rawinbowstream..."
+sudo pip install rainbowstream
+#fix for rainbowstream crash, cause of the use of sudo
+sudo cp /root/.rainbow_config.json ~/
+###################################################
+
+#################### Oh My Zsh ###################
+echo "Installing oh-my-zsh..."
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp -v misc/headless.zsh-theme ~/.oh-my-zsh/themes
+chsh -s /bin/zsh
+##################################################
