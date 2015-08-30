@@ -46,12 +46,16 @@ sudo mv urxvtclip clipboard
 cd -
 #################################################
 
-# Installing vim pathogen and installing gruvbox #
-echo "Installing pathogen for vim..."
+######## Installing pathogen and plugins ########
+echo "Installing pathogen..."
 mkdir -pv ~/.vim/autoload ~/.vim/bundle
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 echo "Installing colorscheme gruvbox for vim..."
 git clone https://github.com/morhetz/gruvbox.git ~/.vim/bundle/gruvbox
+echo "Installing syntastic..."
+git clone https://github.com/scrooloose/syntastic ~/.vim/bundle/syntastic
+echo "Installing vim-airline..."
+git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
 ##################################################
 
 ############ Installing Google Chrome ############
