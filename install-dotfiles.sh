@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+### THIS IS FOR DEBIAN SID! ###
+
 ######## Creating dirs and moving files ########
 echo "Creating directories and moving files..."
 mkdir -v ~/bin
