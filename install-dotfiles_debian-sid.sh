@@ -68,12 +68,12 @@ sudo apt-get update && sudo apt-get install -y google-chrome-stable
 ###################################################
 
 ############### Installing Spotify ################
-#echo "Adding Spotify repository..."
-#echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-#echo "Adding Spotify repository signing key..."
-#sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
-#echo "Updating deb repositories and installing spotify-client..."
-#sudo apt-get update && sudo apt-get install -y spotify-client
+echo "Adding Spotify repository..."
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+echo "Adding Spotify repository signing key..."
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
+echo "Updating deb repositories and installing spotify-client..."
+sudo apt-get update && sudo apt-get install -y spotify-client
 #The offical deb file in spotify's repository doesn't work for Debian Sid, but there are dev pkg's out there...
 current_spotify_version="spotify-client_1.0.11.131.gf4d47cb0_amd64"
 echo "Installing Spotify ($current_spotify_version)"
