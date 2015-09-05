@@ -14,8 +14,6 @@ cp -v i3/i3blocks.conf ~/.i3blocks.conf
 cp -v misc/Xdefaults ~/.Xdefaults
 cp -v misc/zshrc ~/.zshrc
 cp -v misc/vimrc ~/.vimrc
-#needs super-user rights
-sudo cp -v misc/clipboard /usr/lib/urxvt/perl/clipboard
 #################################################
 
 ############## Installing packages ##############
