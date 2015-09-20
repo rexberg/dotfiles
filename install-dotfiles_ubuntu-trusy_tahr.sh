@@ -21,8 +21,8 @@ echo "Installing packages (vim, i3-gaps deps, urxvt, font-awesome, i3-utils)..."
 sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev \
 libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev \
 libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
-pkg-config i3blocks i3lock ruby-ronn fonts-font-awesome rxvt-unicode-256color vim scrot zsh curl \
-xclip suckless-tools weechat python-pip
+pkg-config i3lock ruby-ronn fonts-font-awesome rxvt-unicode-256color vim scrot zsh curl \
+xclip suckless-tools weechat python-pip feh
 #################################################
 
 ################ URXVT Clipboard ################
@@ -38,6 +38,19 @@ echo "Compiling i3-gaps..."
 make
 echo "Installing i3-gaps..."
 sudo make install
+echo "Chaning back to previous directory..."
+cd -
+##################################################
+
+####### Compiling and installing i3blocks ########
+echo "Cloning i3blocks source..."
+git clone git://github.com/vivien/i3blocks ~/i3blocks
+echo "Changing cwd..."
+cd ~/i3blocks
+echo "Compiling i3blocks..."
+make clean debug
+echo "Installing i3blocks..."
+make install
 echo "Chaning back to previous directory..."
 cd -
 ##################################################
