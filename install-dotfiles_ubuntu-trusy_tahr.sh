@@ -4,6 +4,7 @@
 
 ######## Creating dirs and moving files ########
 echo "Creating directories and moving files..."
+mkdir -v ~/source
 mkdir -v ~/bin
 mkdir -v ~/.xlock
 mkdir -v ~/.i3
@@ -31,9 +32,9 @@ sudo cp -v misc/clipboard /usr/lib/urxvt/perl/clipboard
 
 ######## Compiling and installing i3-gaps ########
 echo "Cloning i3-gap source..."
-git clone https://www.github.com/Airblader/i3 ~/i3-gaps
+git clone https://www.github.com/Airblader/i3 ~/source/i3-gaps
 echo "Changing cwd..."
-cd ~/i3-gaps
+cd ~/source/i3-gaps
 echo "Compiling i3-gaps..."
 make
 echo "Installing i3-gaps..."
@@ -44,9 +45,9 @@ cd -
 
 ####### Compiling and installing i3blocks ########
 echo "Cloning i3blocks source..."
-git clone git://github.com/vivien/i3blocks ~/i3blocks
+git clone git://github.com/vivien/i3blocks ~/source/i3blocks
 echo "Changing cwd..."
-cd ~/i3blocks
+cd ~/source/i3blocks
 echo "Compiling i3blocks..."
 make clean debug
 echo "Installing i3blocks..."
@@ -86,15 +87,14 @@ sudo apt-get update && sudo apt-get install -y spotify-client
 ###################################################
 
 ############ Installing dmenu_extended ############
+echo "Cloning dmenu-extended..."
+git clone https://github.com/markjones112358/dmenu-extended.git ~/source/dmenu-extended
+echo "Changing cwd..."
+cd ~/source/dmenu-extended
 echo "Installing dmenu-extended..."
-cd ~
-wget https://github.com/markjones112358/dmenu-extended/archive/master.zip
-unzip ~/master.zip
-cd dmenu-extended-master
 sudo python setup.py install
-cd ..
-sudo rm -rf dmenu-extended-master master.zip
-echo "All done!"
+echo "Chaning back to previous directory..."
+cd -
 ###################################################
 
 ############ Installing rainbowstream ############
@@ -102,6 +102,7 @@ echo "Installing rawinbowstream..."
 sudo pip install rainbowstream
 #fix for rainbowstream crash, cause of the use of sudo
 sudo cp /root/.rainbow_config.json ~/
+#this may need to be changed (the group)
 sudo chown $USER:$USER ~/.rainbow_config.json
 ###################################################
 
