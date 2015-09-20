@@ -18,6 +18,8 @@ cp -v misc/vimrc ~/.vimrc
 #################################################
 
 ############## Installing packages ##############
+echo "Updating dpkg packages..."
+sudo apt-get -qq update
 echo "Installing packages (vim, i3-gaps deps, urxvt, font-awesome, i3-utils)..."
 sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev \
 libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev \
@@ -74,7 +76,7 @@ echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/ap
 echo "Adding Google Chrome repository signing key..."
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo "Updating deb repositories and installing google-chrome-stable..."
-sudo apt-get update && sudo apt-get install -y google-chrome-stable
+sudo apt-get -qq update && sudo apt-get install -y google-chrome-stable
 ###################################################
 
 ############### Installing Spotify ################
@@ -83,7 +85,7 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 echo "Adding Spotify repository signing key..."
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
 echo "Updating deb repositories and installing spotify-client..."
-sudo apt-get update && sudo apt-get install -y spotify-client
+sudo apt-get -qq update && sudo apt-get install -y spotify-client
 ###################################################
 
 ############ Installing dmenu_extended ############
