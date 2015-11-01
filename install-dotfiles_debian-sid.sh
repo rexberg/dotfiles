@@ -75,11 +75,11 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
 echo "Updating deb repositories and installing spotify-client..."
 sudo apt-get update && sudo apt-get install -y spotify-client
 #The offical deb file in spotify's repository doesn't work for Debian Sid, but there are dev pkg's out there...
-current_spotify_version="spotify-client_1.0.11.131.gf4d47cb0_amd64"
-echo "Installing Spotify ($current_spotify_version)"
-wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/$current_spotify_version.deb
-sudo dpkg -i spotify*.deb
-sudo rm -f spotify*.deb
+current_spotify_package="spotify-client_1.0.17.75.g8f111100_amd64.deb"
+echo "Installing Spotify ($current_spotify_package)"
+wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/$current_spotify_package
+sudo dpkg -i $current_spotify_package
+sudo rm -f $current_spotify_package
 ###################################################
 
 ############ Installing dmenu_extended ############
