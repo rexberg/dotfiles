@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-### Check if running Debian Sid...###
+########## Check if running Debian Sid ##########
 
 if [ ! "$(command -v lsb_release)" ]; then
         echo -e "You are not running Debian.\nThis script is only optimized for Debian distributions.\nExiting..."
@@ -33,6 +33,7 @@ else
     echo -e "You are not running Debian.\nThis script is only optimized for Debian distributions.\nExiting..."
     exit 1
 fi
+#################################################
 
 ######## Creating dirs and moving files ########
 echo "Creating directories and moving files..."
@@ -108,7 +109,7 @@ current_spotify_package="spotify-client_1.0.17.75.g8f111100_amd64.deb"
 echo "Installing Spotify ($current_spotify_package)"
 wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/$current_spotify_package
 sudo dpkg -i $current_spotify_package
-sudo rm -f $current_spotify_package
+sudo rm -vf $current_spotify_package
 ###################################################
 
 ############ Installing dmenu_extended ############
@@ -119,15 +120,14 @@ unzip ~/master.zip
 cd dmenu-extended-master
 sudo python setup.py install
 cd ..
-sudo rm -rf dmenu-extended-master master.zip
-echo "All done!"
+sudo rm -rfv dmenu-extended-master master.zip
 ###################################################
 
 ##### Installing pip (python package manager) #####
 echo "Installing pip (python package manager)..."
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
-rm get-pip.py
+rm -v get-pip.py
 ###################################################
 
 ############ Installing rainbowstream ############
