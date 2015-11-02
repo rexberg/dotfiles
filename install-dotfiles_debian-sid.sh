@@ -21,7 +21,8 @@ if [ "$lsb_dist" = "Debian" ]; then
             echo "Exiting script..."
             exit 1
         elif [ "$cont" = "yes" ] || [ "$cont" = "Yes" ] || [ "$cont" = "y" ] || [ "$cont" = "YES" ]; then
-            echo "Continuing with script, beware of any errors or warnings..."
+            echo -e "Continuing with script...\nWill exit one any errors!"
+			set -e
             break
         else
             echo "Please only input 'Yes' or 'No'"
