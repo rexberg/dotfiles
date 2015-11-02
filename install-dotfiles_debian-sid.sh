@@ -1,6 +1,37 @@
 #!/usr/bin/env bash
 
-### THIS IS FOR DEBIAN SID! ###
+### Check if running Debian Sid...###
+
+if [ ! "$(command -v lsb_release)" ]; then
+        echo -e "You are not running Debian.\nThis script is only optimized for Debian distributions.\nExiting..."
+        exit 1
+fi
+
+lsb_dist="$(lsb_release -si)"
+dist_codename="$(lsb_release -sc)"
+
+if [ "$lsb_dist" = "Debian" ]; then
+    if [ "$dist_codename" = "sid" ]; then
+        :
+    else
+        echo -e "You are not running Debian Sid!\nThis script is optimized for Debian Sid only."
+        while true; do
+        read -p "Continue anyway? [Yes/No] " cont
+        if [ "$cont" = "no" ] || [ "$cont" = "No" ] || [ "$cont" = "n" ] || [ "$cont" = "NO" ]; then
+            echo "Exiting script..."
+            exit 1
+        elif [ "$cont" = "yes" ] || [ "$cont" = "Yes" ] || [ "$cont" = "y" ] || [ "$cont" = "YES" ]; then
+            echo "Continuing with script, beware of any errors or warnings..."
+            break
+        else
+            echo "Please only input 'Yes' or 'No'"
+        fi
+        done
+    fi
+else
+    echo -e "You are not running Debian.\nThis script is only optimized for Debian distributions.\nExiting..."
+    exit 1
+fi
 
 ######## Creating dirs and moving files ########
 echo "Creating directories and moving files..."
