@@ -49,7 +49,7 @@ cp -v misc/vimrc ~/.vimrc
 #################################################
 
 ############## Installing packages ##############
-echo "Installing packages (vim, i3-gaps deps, urxvt, font-awesome, i3-utils)..."
+echo "Installing packages (vim, i3-gaps deps, urxvt, font-awesome, i3-utils) etc..."
 sudo apt-get install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev \
 libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev \
 libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
@@ -72,10 +72,7 @@ cd -
 
 ############ Fixing urxvt copy/paste ############
 echo "Fixing copy/paste for urxvt..."
-cd /usr/lib/urxvt/perl
-sudo curl https://dl.dropboxusercontent.com/u/87084722/urxvtclip.tar.gz | sudo tar xz
-sudo mv urxvtclip clipboard
-cd -
+sudo cp -v scripts/clipboard /usr/lib/urxvt/perl/clipboard
 #################################################
 
 ######## Installing pathogen and plugins ########
