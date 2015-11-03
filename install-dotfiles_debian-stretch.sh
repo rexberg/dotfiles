@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-########## Check if running Debian Sid ##########
+########## Check if running Debian Stretch ##########
 
 if [ ! "$(command -v lsb_release)" ]; then
         echo -e "You are not running Debian.\nThis script is only optimized for Debian distributions.\nExiting..."
@@ -11,10 +11,10 @@ lsb_dist="$(lsb_release -si)"
 dist_codename="$(lsb_release -sc)"
 
 if [ "$lsb_dist" = "Debian" ]; then
-    if [ "$dist_codename" = "sid" ]; then
+    if [ "$dist_codename" = "stretch" ]; then
         :
     else
-        echo -e "You are not running Debian Sid!\nThis script is optimized for Debian Sid only."
+        echo -e "You are not running Debian Stretch!\nThis script is optimized for Debian Stretch only."
         while true; do
         read -p "Continue anyway? [Yes/No] " cont
         if [ "$cont" = "no" ] || [ "$cont" = "No" ] || [ "$cont" = "n" ] || [ "$cont" = "NO" ]; then
@@ -104,7 +104,7 @@ echo "Adding Spotify repository signing key..."
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
 echo "Updating deb repositories and installing spotify-client..."
 sudo apt-get update && sudo apt-get install -y spotify-client
-#The offical deb file in spotify's repository doesn't work for Debian Sid, but there are dev pkg's out there...
+#The offical deb file in spotify's repository doesn't work for Debian Stretch, but there are dev pkg's out there...
 current_spotify_package="spotify-client_1.0.17.75.g8f111100_amd64.deb"
 echo "Installing Spotify ($current_spotify_package)"
 wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/$current_spotify_package
