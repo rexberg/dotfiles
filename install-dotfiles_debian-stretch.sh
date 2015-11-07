@@ -35,14 +35,32 @@ else
 fi
 #################################################
 
+############## Check monitor setup ##############
+while true; do
+read -p "Dual monitor[1] or single monitor[2] setup?" mon
+if [ "$mon" -eq 1 ]; then
+	monitor="dualmon"
+elif [ "$mon" -eq 2 ]; then
+	monitor="singlemon"
+else
+	echo "Please only input 1 or 2"
+fi
+#################################################
+
 ######## Creating dirs and moving files ########
 echo "Creating directories and moving files..."
 mkdir -v ~/bin
 mkdir -v ~/.xlock
 mkdir -v ~/.i3
-cp -v scripts/i3lock.sh ~/bin
-cp -v wallpapers/icon.png ~/.xlock
 cp -v i3/config ~/.i3
+
+if [ "$monitor" = "dualmon" ]; then
+	cp -v scripts/i3lock-dualmon.sh ~/bin/i3lock.sh
+elif [ "$monitor" = "singlemon" ]; then
+	cp -v scripts/i3lock-singlemon.sh ~/bin/i3lock.sh
+fi
+
+cp -v wallpapers/icon.png ~/.xlock
 cp -v i3/i3blocks.conf ~/.i3blocks.conf
 cp -v misc/Xdefaults ~/.Xdefaults
 cp -v misc/zshrc ~/.zshrc
