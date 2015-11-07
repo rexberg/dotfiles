@@ -45,6 +45,7 @@ elif [ "$mon" -eq 2 ]; then
 else
 	echo "Please only input 1 or 2"
 fi
+done
 #################################################
 
 ######## Creating dirs and moving files ########
