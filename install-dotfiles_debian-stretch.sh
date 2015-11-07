@@ -37,11 +37,13 @@ fi
 
 ############## Check monitor setup ##############
 while true; do
-read -p "Dual monitor[1] or single monitor[2] setup?" mon
+read -p "Dual monitor[1] or single monitor[2] setup? " mon
 if [ "$mon" -eq 1 ]; then
 	monitor="dualmon"
+	break
 elif [ "$mon" -eq 2 ]; then
 	monitor="singlemon"
+	break
 else
 	echo "Please only input 1 or 2"
 fi
