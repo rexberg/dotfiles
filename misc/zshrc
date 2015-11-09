@@ -70,11 +70,36 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+memtop (){
+	# list top consumers of memory on the system
+    {
+	 echo "_PID_ _Name_ _Mem_"
+	 for i in /proc/[0-9]*
+	 do
+	 echo -e "${i##*/}\t$(<$i/comm)\t$(pmap -d "${i##*/}" |\
+	 tail -1 | {
+	 read a b c mem d
+	 echo $mem
+	 }
+	 )"
+	 done |\
+	 sort -nr -k3 |\
+	 head -$((${LINES:-23} - 3))
+    } |\
+    column -t
+} 2>/dev/null
+
+pingtime (){
+    if [ $# -lt 1 ]; then
+        echo "Need one argument"
+    elif [ $# -gt 1 ]; then
+        echo "Can only take one argument"
+    else
+        ping -t $1 | while read pong; do echo "$(date "+%Y-%m-%d %H:%M:%S"): $pong"; done
+    fi
+}
+
+alias memtop=memtop
+alias pingtime=pingtime
+alias grep="grep --color=auto"
+alias ls="ls --color=auto"
