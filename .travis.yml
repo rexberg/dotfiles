@@ -1,0 +1,7 @@
+language: bash
+
+install:
+    - cabal install shellcheck
+
+script:
+    - PATH="$HOME/.cabal/bin:$PATH" ./test.sh
