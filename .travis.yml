@@ -1,7 +1,8 @@
 language: bash
 
 install:
-    - cabal install shellcheck
+    - wget "http://ftp.debian.org/debian/pool/main/s/shellcheck/shellcheck_0.3.7-1_amd64.deb"
+    - sudo dpkg -i "shellcheck_0.3.7-1_amd64.deb"
 
 script:
-    - PATH="$HOME/.cabal/bin:$PATH" ./test.sh
+    - ./test.sh
