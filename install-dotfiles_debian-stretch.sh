@@ -39,7 +39,18 @@ fi
 while true; do
 read -p "Dual monitor[1] or single monitor[2] setup? " mon
 if [ "$mon" -eq 1 ]; then
-	monitor="dualmon"
+	while true; do
+	read -p "Is your primary monitor located to the left[1] or to the right[2] of your secondary monitor? " monpos
+	if [ "$monpos" -eq 1 ]; then
+		monitorpos="left"
+		break
+	elif [ "$monpos" -eq 2 ]; then
+		monitorpos="right"
+		break
+	else
+		echo "Please only input 1 or 2"
+	fi
+	done
 	break
 elif [ "$mon" -eq 2 ]; then
 	monitor="singlemon"
@@ -58,7 +69,11 @@ mkdir -v ~/.i3
 cp -v i3/config ~/.i3
 
 if [ "$monitor" = "dualmon" ]; then
-	cp -v scripts/i3lock-dualmon.sh ~/bin/i3lock.sh
+	if [ "$monitorpos" = "left" ]; then
+		cp -v scripts/i3lock-dualmon-primLeft.sh ~/bin/i3lock.sh
+	elif [ "$monitorpos" = "right" ]; then
+		cp -v scripts/i3lock-dualmon-primRight.sh ~/bin/i3lock.sh
+	fi
 elif [ "$monitor" = "singlemon" ]; then
 	cp -v scripts/i3lock-singlemon.sh ~/bin/i3lock.sh
 fi
