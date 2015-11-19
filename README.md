@@ -1,3 +1,5 @@
+[![Travis-ci Build Status](https://travis-ci.org/HeadlessChild/dot-files.png?branch=master)](https://travis-ci.org/HeadlessChild/dot-files)
+
 <h1>Dot files for linux workstations.</h1>
 Feel free to copy and use it on your own.
 
