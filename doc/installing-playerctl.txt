@@ -1,8 +1,0 @@
-##Installing from source on Ubuntu 14.04##
-git clone https://github.com/acrisci/playerctl.git
-sudo apt-get install gtk-doc-tools
-sudo apt-get install libgtk2.0-dev
-sudo apt-get install gobject-introspection
-./autogen.sh --prefix=/usr
-make
-sudo make install
