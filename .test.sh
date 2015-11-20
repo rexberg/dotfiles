@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-set -x
+set -e
 
-build=$(shellcheck install-dotfiles_debian-stretch.sh)
-
-if [ "$?" -ge 1 ]; then
-    echo "$build"
-    exit 1
-fi
+for i in $(find . -type f -executable -not -path "./.git/*"); do 
+    shellcheck $i && echo -e "---\nSucessfully linted $i\n---"
+done

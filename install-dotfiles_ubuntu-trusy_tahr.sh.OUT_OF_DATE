@@ -105,7 +105,7 @@ sudo pip install rainbowstream
 #fix for rainbowstream crash, cause of the use of sudo
 sudo cp /root/.rainbow_config.json ~/
 #this may need to be changed (the group)
-sudo chown $USER:$USER ~/.rainbow_config.json
+sudo chown "$USER":"$USER" ~/.rainbow_config.json
 ###################################################
 
 #################### Oh My Zsh ###################
