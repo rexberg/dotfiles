@@ -134,18 +134,12 @@ sudo apt-get update && sudo apt-get install -y google-chrome-stable
 ###################################################
 
 ############### Installing Spotify ################
-echo "Adding Spotify repository..."
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-echo "Adding Spotify repository signing key..."
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
-echo "Updating deb repositories and installing spotify-client..."
-sudo apt-get update && sudo apt-get install -y spotify-client
 #The offical deb file in spotify's repository doesn't work for Debian Stretch, but there are dev pkg's out there...
 current_spotify_package="spotify-client_1.0.17.75.g8f111100_amd64.deb"
-echo "Installing Spotify ($current_spotify_package)"
+echo "Installing Spotify ($current_spotify_package) dev package"
 wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/$current_spotify_package
 sudo dpkg -i $current_spotify_package
-sudo rm -vf $current_spotify_package
+sudo rm -fv $current_spotify_package
 ###################################################
 
 ############ Installing dmenu_extended ############
@@ -156,14 +150,14 @@ unzip ~/master.zip
 cd dmenu-extended-master
 sudo python setup.py install
 cd ..
-sudo rm -rfv dmenu-extended-master master.zip
+sudo rm -fv dmenu-extended-master master.zip
 ###################################################
 
 ##### Installing pip (python package manager) #####
 echo "Installing pip (python package manager)..."
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
-rm -v get-pip.py
+rm -fv get-pip.py
 ###################################################
 
 ############ Installing rainbowstream ############
