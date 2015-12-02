@@ -135,7 +135,7 @@ sudo apt-get update && sudo apt-get install -y google-chrome-stable
 
 ############### Installing Spotify ################
 #The offical deb file in spotify's repository doesn't work for Debian Stretch, but there are dev pkg's out there...
-current_spotify_package="spotify-client_1.0.17.75.g8f111100_amd64.deb"
+current_spotify_package="spotify-client_1.0.19.106.gb8a7150f_amd64.deb"
 echo "Installing Spotify ($current_spotify_package) dev package"
 wget http://repository-origin.spotify.com/pool/non-free/s/spotify-client/$current_spotify_package
 sudo dpkg -i $current_spotify_package
