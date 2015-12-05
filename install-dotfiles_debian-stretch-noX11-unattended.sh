@@ -44,5 +44,5 @@ sudo chown markus:markus ~/.rainbow_config.json
 echo "Installing oh-my-zsh..."
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp -v ~/dot-files/misc/headless.zsh-theme ~/.oh-my-zsh/themes
-chsh -s /bin/zsh markus
+#chsh -s /bin/zsh markus #not working
 ##################################################
