@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 for i in $(find . -type f -executable -not -path "./.git/*" ! -name "*.test*" ! -name "*install-dotfiles_ubuntu-trusy_tahr.sh.OUT_OF_DATE*"); do 
     shellcheck "$i"
