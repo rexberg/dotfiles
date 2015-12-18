@@ -70,7 +70,7 @@ echo "Installing rawinbowstream..."
 sudo pip install rainbowstream
 #fix for rainbowstream crash, cause of the use of sudo
 sudo cp /root/.rainbow_config.json ~/
-sudo chown $USER ~/.rainbow_config.json
+sudo chown "$USER" ~/.rainbow_config.json
 ###################################################
 
 #################### Oh My Zsh ###################
