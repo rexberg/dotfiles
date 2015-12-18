@@ -1,4 +1,4 @@
-[![Build Status](https://jenkins.lindberg.io/buildStatus/icon?job=dot-files&build=4)](https://jenkins.lindberg.io/job/dot-files/4/)
+[![Build Status](https://jenkins.lindberg.io/buildStatus/icon?job=dot-files)](https://jenkins.lindberg.io/job/dot-files/)
 
 <h1>Dot files for linux workstations.</h1>
 Feel free to copy and use it on your own.
