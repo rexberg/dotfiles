@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-########## Check if running Debian Stretch ###########
+########### Check if running Debian Stretch ###########
 
 if [ ! "$(command -v lsb_release)" ]; then
         echo -e "You are not running Debian.\nThis script is only optimized for Debian distributions.\nExiting..."
