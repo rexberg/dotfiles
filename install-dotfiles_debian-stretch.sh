@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#test
 
 ########### Check if running Debian Stretch ###########
 
