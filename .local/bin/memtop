@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # List top consumers of memory on the system.
 #
 # Dependency: procps
