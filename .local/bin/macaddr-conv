@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Tries to convert a MAC address into ff:ff:ff:ff:ff:ff format.
+
+usage(){ printf "Usage: %s ff:ff:ff:ff:ff:ff\n" "$0"; }
+
+[ $# -ne 1 ] && usage && exit 1
+
+sMACaddress="$1"
+sMACaddress="$(echo -n ${sMACaddress} | tr "[[:upper:]]" "[[:lower:]]" | tr -d ":-")"
+if expr "$sMACaddress" : '^[0-9a-f]\+$' >/dev/null 2>&1; then
+        if [ ${#sMACaddress} -eq 12 ]; then
+                printf "%s\n" "${sMACaddress}" |  sed 's/..\B/&:/g'
+        fi
+fi

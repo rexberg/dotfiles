@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Remove host from the ~/.ssh/known_hosts file.
+
+usage(){ printf "Usage: %s example.com\n" "$0"; }
+
+[ $# -ne 1 ] && usage && exit 1
+ssh-keygen -R "$1"

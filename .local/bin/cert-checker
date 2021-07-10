@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Display SSL certificate information for a domain. Often used for
+# troubleshooting.
+#
+# Dependency: openssl
+
+usage(){ printf "Usage: %s example.com\n" "$0"; }
+
+[ $# -ne 1 ] && usage && exit 1
+
+echo | openssl s_client -servername NAME -connect "$1":443 2>/dev/null | openssl x509 -text 2>/dev/null
