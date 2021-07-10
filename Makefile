@@ -1,6 +1,6 @@
 install:
-		mkdir ~/.cache
-		mkdir ~/.config
+		mkdir -p ~/.cache
+		mkdir -p ~/.config
 		mkdir -p ~/.local/bin
 		mkdir -p ~/.local/share
 		cp .bashrc ~/
