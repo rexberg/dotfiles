@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Adds a timestamp for every ping request.
+
+usage(){ printf "Usage: %s example.com\n" "$0"; }
+
+[ $# -ne 1 ] && usage && exit 1
+
+ping $1 | while read pong; do echo "$(date '+%F %T') - $pong"; done
