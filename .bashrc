@@ -1,4 +1,4 @@
-#!/bin/bash
+command -v uname >/dev/null 2>&1 && OSTYPE=$(uname)
 
 shopt -s autocd
 shopt -s cdspell
@@ -14,16 +14,21 @@ export EDITOR=vim
 export PAGER='less -I'
 export VISUAL=vim
 export WORKON_HOME="$HOME/.local/share/venv"
+[ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+[ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 infocmp xterm-256color >/dev/null 2>&1 && export TERM="xterm-256color"
 
-alias ll='ls --color=auto -lh'
+[ $OSTYPE = "Darwin" ] && alias ll='ls -lhG' || alias ll='ls --color=auto -lh'
 alias gd='git diff --color-moved'
 alias grep='grep --color=auto'
 alias notes='$EDITOR $HOME/.local/share/notes.txt'
+alias svnlog='svn log --limit=10'
 
 # bash-completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
-    source /usr/share/bash-completion/bash_completion
+	source /usr/share/bash-completion/bash_completion
 elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion
+	source /etc/bash_completion
+elif [ -f /usr/local/etc/bash_completion ]; then
+	source /usr/local/etc/bash_completion
 fi
