@@ -8,7 +8,7 @@ shopt -s dirspell
 shopt -s histappend
 shopt -s nocaseglob
 
-export PS1="\[\033[38;5;33m\]\u\[$(tput sgr0)\] at \[$(tput sgr0)\]\[\033[38;5;37m\]\h\[$(tput sgr0)\] in \[\e[1;32m\]\w\[$(tput sgr0)\] $ "
+export PS1="\[\033[38;5;33m\]\u\[\033[0m\] at \[\033[38;5;37m\]\h\[\033[0m\] in \[\e[1;32m\]\w\[\033[0m\]\n$ "
 export PATH=$PATH:$HOME/.local/bin
 export EDITOR=vim
 export PAGER='less -I'
