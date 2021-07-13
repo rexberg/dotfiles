@@ -5,6 +5,7 @@ install:
 		mkdir -p ~/.local/share
 		cp .bashrc ~/
 		cp .bash_profile ~/
+		cp .bash_prompt ~/
 		cp -R .config ~/
 		cp -R .local ~/
 
