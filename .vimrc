@@ -9,8 +9,9 @@ syntax on
 " Enable modeline. "
 set modeline
 
-" Enable cursorcolumn "
-set cursorcolumn
+" Change file type to cf3 for *.cf files (needed for cf3.vim syntax "
+" highlighting). "
+au BufRead,BufNewFile *.cf set ft=cf3
 
 " Insterting timestamp with tag system in notes.txt. "
 nnoremap <F5> "=strftime("%F_%T (%Z) %A tags::")<CR>P
