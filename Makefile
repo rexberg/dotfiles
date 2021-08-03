@@ -8,6 +8,7 @@ install:
 		cp .bash_prompt ~/
 		cp -R .config ~/
 		cp -R .local ~/
+		cp -R .vim ~/
 		cp .vimrc ~/
 
 .PHONY: install
