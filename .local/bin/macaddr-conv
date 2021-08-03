@@ -1,15 +1,38 @@
 #!/bin/sh
 
-# Tries to convert a MAC address into ff:ff:ff:ff:ff:ff format.
+# Tries to convert a MAC address into the IETF standard, that is
+# ff:ff:ff:ff:ff:ff.
 
-usage(){ printf "Usage: %s ff:ff:ff:ff:ff:ff\n" "$0"; }
+log() {
+    printf "%s\n" "$*"
+}
 
-[ $# -ne 1 ] && usage && exit 1
+die() {
+    log "$*" >&2
+    exit 1
+}
 
-sMACaddress="$1"
-sMACaddress="$(echo -n ${sMACaddress} | tr "[[:upper:]]" "[[:lower:]]" | tr -d ":-")"
+usage() {
+	die "Usage: ${0##*/} MAC_ADDR"
+}
+
+[ $# -ne 1 ] && usage
+
+sMACaddressArg="$1"
+# Convert all characters from uppercase to lowercase and remove any ':'
+# or '-' characters.
+sMACaddress="$(printf "%s" "${sMACaddressArg}" | tr "[[:upper:]]" "[[:lower:]]" | tr -d ":-")"
+# Only match hexadecimal digits.
 if expr "$sMACaddress" : '^[0-9a-f]\+$' >/dev/null 2>&1; then
+		# Only accept 12 digits.
         if [ ${#sMACaddress} -eq 12 ]; then
+				# Print MAC address in the IETF standard format.
                 printf "%s\n" "${sMACaddress}" |  sed 's/..\B/&:/g'
-        fi
+        elif [ ${#sMACaddress} -lt 12 ]; then
+			log "'${sMACaddressArg}' is not a valid MAC address, it is to short."
+        elif [ ${#sMACaddress} -gt 12 ]; then
+			log "'${sMACaddressArg}' is not a valid MAC address, it is to long."
+		fi
+else
+	log "'${sMACaddressArg}' is not a valid MAC address, it can only contain hexadecimal digits combined with hyphens or colons."
 fi
