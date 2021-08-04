@@ -9,6 +9,9 @@ syntax on
 " Enable modeline. "
 set modeline
 
+" Disable folding. "
+set nofoldenable
+
 " Change file type to cf3 for *.cf files (needed for cf3.vim syntax "
 " highlighting). "
 au BufRead,BufNewFile *.cf set ft=cf3
