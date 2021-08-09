@@ -18,8 +18,9 @@ export EDITOR=vim
 export PAGER='less -I'
 export VISUAL=vim
 export WORKON_HOME="$HOME/.local/share/venv"
-[ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-[ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export PROJECT_HOME="$HOME/.local/share/venv_projects"
+[ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3 || export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+[ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv || export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
 # alias
 [ $OSTYPE = "Darwin" ] && alias ll='ls -lhG' || alias ll='ls --color=auto -lh'
