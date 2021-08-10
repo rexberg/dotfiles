@@ -10,5 +10,6 @@ install:
 		cp -R .local ~/
 		cp -R .vim ~/
 		cp .vimrc ~/
+		cp .Xresouces ~/
 
 .PHONY: install
