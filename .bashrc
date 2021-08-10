@@ -24,8 +24,10 @@ export PROJECT_HOME="$HOME/.local/share/venv_projects"
 
 # alias
 [ $OSTYPE = "Darwin" ] && alias ll='ls -lhG' || alias ll='ls --color=auto -lh'
+alias diff='diff --color=auto'
 alias gd='git diff --color-moved'
 alias grep='grep --color=auto'
+alias ip='ip -color=auto'
 alias notes='$EDITOR $HOME/.local/share/notes.txt'
 alias svnlog='svn log --limit=10'
 
