@@ -19,8 +19,8 @@ export PAGER='less -I'
 export VISUAL=vim
 export WORKON_HOME="$HOME/.local/share/venv"
 export PROJECT_HOME="$HOME/.local/share/venv_projects"
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 [ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3 || export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-[ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv || export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
 # alias
 [ $OSTYPE = "Darwin" ] && alias ll='ls -lhG' || alias ll='ls --color=auto -lh'
@@ -28,7 +28,7 @@ alias diff='diff --color=auto'
 alias gd='git diff --color-moved'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
-alias notes='$EDITOR $HOME/.local/share/notes.txt'
+alias notes="$EDITOR $HOME/.local/share/notes.txt"
 alias svnlog='svn log --limit=10'
 
 # bash-completion
