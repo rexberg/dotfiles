@@ -3,6 +3,7 @@ install:
 		mkdir -p ~/.config
 		mkdir -p ~/.local/bin
 		mkdir -p ~/.local/share
+		cp .ansible.cfg ~/
 		cp .bashrc ~/
 		cp .bash_profile ~/
 		cp .bash_prompt ~/
