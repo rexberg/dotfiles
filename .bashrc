@@ -54,3 +54,8 @@ else
 	eval $(ssh-agent | tee ~/.ssh/agent.env)
 	ssh-add
 fi
+
+# source local modifications
+if [ -f ~/.bash_local ]; then
+	source ~/.bash_local
+fi
