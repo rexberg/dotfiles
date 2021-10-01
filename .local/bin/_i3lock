@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Capture screen, blur it and use it as background for i3lock combined
+# with a predefined "padlock" icon.
+
+ICON="$HOME/.local/share/i3lock-icon.png"
+TMPBG="$HOME/.cache/i3lock-scrot.png"
+
+command_check(){
+	command -v $1 >/dev/null 2>&1
+	if [ $? -ge 1 ]; then
+		command -v notify-send >/dev/null 2>&1
+		if [ $? -ge 1 ]; then
+			printf "${1}: not found.\n"
+		fi
+		notify-send --urgency=critical "${1}: not found."
+		exit 1
+	fi
+}
+
+command_check import
+command_check convert
+command_check i3lock
+
+import -window root "$TMPBG"
+
+convert "$TMPBG" -scale 10% -scale 1000% "$TMPBG"
+
+convert "$TMPBG" "$ICON" -gravity center -composite "$TMPBG"
+
+i3lock -u -i "$TMPBG"

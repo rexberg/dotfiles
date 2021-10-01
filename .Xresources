@@ -1,3 +1,4 @@
+
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
 *.background: #282A36
@@ -17,3 +18,15 @@
 *.color14:    #9AEDFE
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
+
+! URxvt, font
+URxvt.font: 			xft:IBM Plex Mono:style=Regular:size=12
+URxvt.boldFont: 		xft:IBM Plex Mono:style=Bold:size=12
+URxvt.italicFont: 		xft:IBM Plex Mono:style=Italic:size=12
+URxvt.boldItalicFont: 	xft:IBM Plex Mono:style=Bold Italic:size=12
+! URxvt, clickable URLs
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+! URxvt, disable PrtScreen
+URxvt.print-pipe: "cat > /dev/null"
