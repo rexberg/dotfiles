@@ -1,3 +1,5 @@
-export TERMINAL=/usr/bin/kitty
+#!/bin/sh
 
-[ -f ~/.config/monitor/xrandrrc ] && exec ~/.config/monitor/xrandrrc
+export TERMINAL=kitty
+
+[ -f ~/.config/monitor/xrandrrc ] && ~/.config/monitor/xrandrrc
