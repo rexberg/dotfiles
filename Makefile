@@ -1,6 +1,7 @@
 install:
 		mkdir -p ~/.cache
 		mkdir -p ~/.config
+		mkdir -p ~/.config/monitor
 		mkdir -p ~/.local/bin
 		mkdir -p ~/.local/share
 		cp .ansible.cfg ~/
@@ -11,6 +12,8 @@ install:
 		cp -R .local ~/
 		cp -R .vim ~/
 		cp .vimrc ~/
+		cp .xinitrc ~/
+		cp .xprofile ~/
 		cp .Xresources ~/
 
 .PHONY: install
