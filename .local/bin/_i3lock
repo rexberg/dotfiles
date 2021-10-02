@@ -26,6 +26,15 @@ import -window root "$TMPBG"
 
 convert "$TMPBG" -scale 10% -scale 1000% "$TMPBG"
 
-convert "$TMPBG" "$ICON" -gravity center -composite "$TMPBG"
+# Single monitor setup.
+# 1920x1080
+#convert "$TMPBG" "$ICON" -geometry +731+232 -composite "$TMPBG"
+#
+# Dual monitor setup.
+#
+# 1920x1080 (primary monitor right oriented)
+#convert "$TMPBG" "$ICON" -geometry +2651+232 -composite "$TMPBG"
+# 1920x1080 (primary monitor left oriented)
+convert "$TMPBG" "$ICON" -geometry +731+232 -composite "$TMPBG"
 
 i3lock -u -i "$TMPBG"

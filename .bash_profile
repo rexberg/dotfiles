@@ -1,4 +1,3 @@
-#!/bin/bash
-
-[ -f ~/.bashrc ] && source ~/.bashrc
-[ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
+[ -f ~/.bashrc ] && . ~/.bashrc
+[ -f ~/.bash_local ] && . ~/.bash_local
+[ -f /usr/local/bin/virtualenvwrapper.sh ] && . /usr/local/bin/virtualenvwrapper.sh
