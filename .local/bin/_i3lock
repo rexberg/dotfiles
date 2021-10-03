@@ -1,40 +1,39 @@
 #!/bin/sh
 
 # Capture screen, blur it and use it as background for i3lock combined
-# with a predefined "padlock" icon.
+# with a predefined "padlock" icon that is placed in the center of the
+# primary monitor.
+#
+# Dependecies: imagick, xrandr, i3lock
 
-ICON="$HOME/.local/share/i3lock-icon.png"
-TMPBG="$HOME/.cache/i3lock-scrot.png"
+ICON="${XDG_DATA_HOME:-$HOME/.local/share}/i3lock-icon.png"
+
+tmpbg="${XDG_CACHE_HOME:-$HOME/.cache}/i3lock.png"
 
 command_check(){
 	command -v $1 >/dev/null 2>&1
 	if [ $? -ge 1 ]; then
 		command -v notify-send >/dev/null 2>&1
 		if [ $? -ge 1 ]; then
-			printf "${1}: not found.\n"
+			printf "${1}: command not found.\n"
+			exit 1
 		fi
-		notify-send --urgency=critical "${1}: not found."
+		notify-send --urgency=critical "${1}: command not found."
 		exit 1
 	fi
 }
 
-command_check import
-command_check convert
-command_check i3lock
+for command in import convert identify xrandr i3lock; do
+	command_check $command
+done
 
-import -window root "$TMPBG"
+import -window root "$tmpbg"
 
-convert "$TMPBG" -scale 10% -scale 1000% "$TMPBG"
+convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
 
-# Single monitor setup.
-# 1920x1080
-#convert "$TMPBG" "$ICON" -geometry +731+232 -composite "$TMPBG"
-#
-# Dual monitor setup.
-#
-# 1920x1080 (primary monitor right oriented)
-#convert "$TMPBG" "$ICON" -geometry +2651+232 -composite "$TMPBG"
-# 1920x1080 (primary monitor left oriented)
-convert "$TMPBG" "$ICON" -geometry +731+232 -composite "$TMPBG"
+read monitor_x monitor_y <<< $(xrandr -q | awk '/primary/ && match($0, /([0-9]+)x([0-9]+)/, arr) {printf "%s %s\n", arr[1], arr[2]}')
+read icon_x icon_y <<< $(identify -ping -format '%w %h\n' $ICON)
 
-i3lock -u -i "$TMPBG"
+convert "$tmpbg" "$ICON" -geometry +$(((monitor_x/2)-(icon_x/2)))+$(((monitor_y/2)-(icon_y/2))) -composite "$tmpbg"
+
+i3lock -u -i "$tmpbg"
