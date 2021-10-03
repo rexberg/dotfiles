@@ -30,7 +30,7 @@ alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias notes="$EDITOR $HOME/.local/share/notes.txt"
 alias svnlog='svn log --limit=10'
-alias cal='ncal -Mwb'
+alias cal='cal -w'
 
 # bash-completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
