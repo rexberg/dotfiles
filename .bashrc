@@ -11,6 +11,8 @@ shopt -s histappend
 shopt -s nocaseglob
 
 # env
+export HISTSIZE=-1
+export HISTFILESIZE=-1
 infocmp xterm-256color >/dev/null 2>&1 && export TERM="xterm-256color"
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt || export PS1="\[\033[38;5;33m\]\u\[\033[0m\] at \[\033[38;5;37m\]\h\[\033[0m\] in \[\e[1;32m\]\w\[\033[0m\]\n$ "
 export PATH=$PATH:$HOME/.local/bin
@@ -23,7 +25,7 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 [ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3 || export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # alias
-[ $OSTYPE = "Darwin" ] && alias ll='ls -lhG' || alias ll='ls --color=auto -lh'
+[ $OSTYPE = "Darwin" ] && alias ll='ls -lhG' || alias ll='ls --color=auto -lhF'
 alias diff='diff --color=auto'
 alias gd='git diff --color-moved'
 alias grep='grep --color=auto'
@@ -58,4 +60,9 @@ fi
 # source local modifications
 if [ -f ~/.bash_local ]; then
 	source ~/.bash_local
+fi
+
+# source virtualenvwrapper.sh
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+	source /usr/local/bin/virtualenvwrapper.sh
 fi
