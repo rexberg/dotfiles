@@ -23,7 +23,7 @@ zstyle ':vcs_info:*' stagedstr ' %F{purple}[+]'
 zstyle ':vcs_info:git:*' formats       '%b%u%c'
 zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 precmd() {
-	local NEWLINE=$'\n'
+	NEWLINE=$'\n'
 	vcs_info
 	if [[ -z ${vcs_info_msg_0_} ]]; then
 		PROMPT='%B%F{blue}%n%f %F{orange}at%f %F{cyan}%m%f %F{orange}in%f %F{green}%~%f${NEWLINE}$%b '
@@ -33,6 +33,7 @@ precmd() {
 }
 
 alias ll="ls -lh --color=always"
+alias tree="tree -a -I .git"
 alias diff='diff --color=auto'
 alias gd='git diff --color-moved'
 alias grep='grep --color=auto'
