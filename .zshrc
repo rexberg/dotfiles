@@ -18,10 +18,19 @@ compinit
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr ' %F{purple}[!]'
-zstyle ':vcs_info:*' stagedstr ' %F{purple}[+]'
+zstyle ':vcs_info:*' unstagedstr ' %F{purple}[!]%f'
+zstyle ':vcs_info:*' stagedstr ' %F{purple}[+]%f'
 zstyle ':vcs_info:git:*' formats       '%b%u%c'
 zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+
++vi-git-untracked(){
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        git status --porcelain | grep '??' &> /dev/null ; then
+        hook_com[staged]+=' %F{purple}[?]%f'
+    fi
+}
+
 precmd() {
 	NEWLINE=$'\n'
 	vcs_info
