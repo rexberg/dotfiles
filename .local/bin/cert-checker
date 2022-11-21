@@ -5,8 +5,27 @@
 #
 # Dependency: openssl
 
-usage(){ printf "Usage: %s example.com\n" "$0"; }
+usage(){ printf "Usage: %s [OPTION]... example.com\n\nRequire argument\n\n\t-p\tPORT\t(default: 443)\n\n" "$0"; }
+
+# Handle flags and operators.
+while getopts p:h flags; do
+	case $flags in
+	p)
+		PORT=${OPTARG}
+		;;
+	h)
+		usage
+		exit 0
+		;;
+	\?)
+		usage
+		exit 1
+		;;
+	esac
+done
+
+shift $((OPTIND-1))
 
 [ $# -ne 1 ] && usage && exit 1
 
-echo | openssl s_client -servername NAME -connect "$1":443 2>/dev/null | openssl x509 -text 2>/dev/null
+echo | openssl s_client -servername NAME -connect "$1":${PORT:-443} 2>/dev/null | openssl x509 -text 2>/dev/null
