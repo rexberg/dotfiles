@@ -21,7 +21,7 @@ export PAGER='less -I'
 export VISUAL=vim
 export WORKON_HOME="$HOME/.local/share/venv"
 export PROJECT_HOME="$HOME/.local/share/venv_projects"
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV=${HOME}/.local/bin/virtualenv
 [ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3 || export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # alias
@@ -33,6 +33,7 @@ alias ip='ip -color=auto'
 alias notes="$EDITOR $HOME/.local/share/notes.txt"
 alias svnlog='svn log --limit=10'
 alias cal='cal -w'
+alias shrug="echo '¯\_(ツ)_/¯'"
 
 # bash-completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -63,6 +64,6 @@ if [ -f ~/.bash_local ]; then
 fi
 
 # source virtualenvwrapper.sh
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-	source /usr/local/bin/virtualenvwrapper.sh
+if [ -f ${HOME}/.local/bin/virtualenvwrapper.sh ]; then
+	source ${HOME}/.local/bin/virtualenvwrapper.sh
 fi
