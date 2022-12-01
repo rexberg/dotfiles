@@ -13,6 +13,7 @@ shopt -s nocaseglob
 # env
 export HISTSIZE=-1
 export HISTFILESIZE=-1
+export HISTCONTROL=ignoreboth
 infocmp xterm-256color >/dev/null 2>&1 && export TERM="xterm-256color"
 [ -f $HOME/.bash_prompt ] && source $HOME/.bash_prompt || export PS1="\[\033[38;5;33m\]\u\[\033[0m\] at \[\033[38;5;37m\]\h\[\033[0m\] in \[\e[1;32m\]\w\[\033[0m\]\n$ "
 export PATH=$PATH:$HOME/.local/bin
