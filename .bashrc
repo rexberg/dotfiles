@@ -1,4 +1,4 @@
-# sanity check
+# sanity check 
 command -v uname >/dev/null 2>&1 && OSTYPE=$(uname)
 
 # option
