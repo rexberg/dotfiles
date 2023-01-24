@@ -48,3 +48,8 @@ alias gd='git diff --color-moved'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias svnlog="svn log --verbose --limit 10"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/packer packer
+
+complete -o nospace -C /usr/bin/vault vault

@@ -1,7 +1,4 @@
-# sanity check 
-command -v uname >/dev/null 2>&1 && OSTYPE=$(uname)
-
-# option
+# options
 shopt -s autocd
 shopt -s cdspell
 shopt -s checkwinsize
@@ -10,7 +7,7 @@ shopt -s dirspell
 shopt -s histappend
 shopt -s nocaseglob
 
-# env
+# envs
 export HISTSIZE=-1
 export HISTFILESIZE=-1
 export HISTCONTROL=ignoreboth
@@ -23,18 +20,21 @@ export VISUAL=vim
 export WORKON_HOME="$HOME/.local/share/venv"
 export PROJECT_HOME="$HOME/.local/share/venv_projects"
 export VIRTUALENVWRAPPER_VIRTUALENV=${HOME}/.local/bin/virtualenv
-[ $OSTYPE = "Darwin" ] && export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3 || export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
-# alias
-[ $OSTYPE = "Darwin" ] && alias ll='ls -lhG' || alias ll='ls --color=auto -lhF'
+# aliases
+alias ll='ls --color=auto -lhF'
 alias diff='diff --color=auto'
 alias gd='git diff --color-moved'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias notes="$EDITOR $HOME/.local/share/notes.txt"
 alias svnlog='svn log --limit=10'
+alias svngrep="svn log | grep -A1 -B2 $@"
 alias cal='cal -w'
 alias shrug="echo '¯\_(ツ)_/¯'"
+alias vaultd="ansible-vault decrypt --output -"  # Set ANSIBLE_VAULT_PASSWORD_FILE env
+alias apt-update-verbose="sudo apt -o'Debug::pkgAcquire::Worker=1' update"
 
 # bash-completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then

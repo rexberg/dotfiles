@@ -1,3 +1,8 @@
+" Remember last position. "
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
+endif
+
 " Tab. "
 set tabstop=4
 set softtabstop=0 noexpandtab
