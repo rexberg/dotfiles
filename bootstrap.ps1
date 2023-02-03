@@ -1,3 +1,5 @@
+#Requires -RunAsAdministrator
+
 # Install software
 Write-Output "Installing 'Microsoft.PowerShell' using winget."
 winget install --silent Microsoft.PowerShell
@@ -7,10 +9,6 @@ Write-Output "Installing 'Spotify.Spotify' using winget."
 winget install --silent Spotify.Spotify
 Write-Output "Installing 'GoLang.Go.1.19' using winget."
 winget install --silent GoLang.Go.1.19
-
-# Setup WSL
-Write-Output "Installing WSL (Ubuntu)."
-wsl --install Ubuntu
 
 # Setup OpenSSH client/server
 Write-Output "Fetching 'OpenSSH*' Windows capabilities."
@@ -41,8 +39,10 @@ if (!(Get-NetFirewallRule -Name "ICMPv4-In" -ErrorAction SilentlyContinue | Sele
     Write-Output "Firewall rule 'ICMPv4-In' has been created and exists."
 }
 
-# Setup npiperelay (named pipes)
-Write-Output "Installing 'npiperelay' (named pipes)."
-go install github.com/jstarks/npiperelay@master
-Write-Output "Linking 'npiperelay.exe' to '/usr/local/bin' inside WSL."
-wsl -- sudo ln -sf /mnt/c/Users/$env:USERNAME/go/bin/npiperelay.exe /usr/local/bin/npiperelay.exe
+# Setup WSL
+Write-Output "Installing WSL (Ubuntu)."
+wsl --install Ubuntu
+@'
+[wsl2]
+guiApplications=false
+'@>$env:USERPROFILE\.wslconfig
