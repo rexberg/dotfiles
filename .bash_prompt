@@ -50,7 +50,7 @@ prompt_git() {
 
 		[ -n "${s}" ] && s=" [${s}]"
 
-		echo -e "${PINK}${branchName}${PURPLE_2}${s}"
+		echo "${PINK}${branchName}${PURPLE_2}${s}"
 	else
 		return
 	fi
@@ -65,7 +65,7 @@ prompt_kubectl() {
   fi
 
   if kubectl_context=$(kubectl config current-context 2> /dev/null); then
-    echo -e "${WHITE}(${BLUE}${kubectl_context}${WHITE})${CLEAR} "
+    echo "${WHITE}(${BLUE}${kubectl_context}${WHITE})${CLEAR} "
   fi
 }
 
@@ -78,17 +78,16 @@ PURPLE_2="$(tput setaf 183)"  # git status
 BLUE="$(tput setaf 33)"       # kubectl context
 CLEAR="$(tput sgr0)"          # unset color
 
-# Set the terminal title to the current working directory.
-PS1="\\[\\033]0;\\w\\007\\]";
-PS1="${PURPLE}\u${CLEAR} ";        # username
-PS1+="${WHITE}at${CLEAR} ";
-PS1+="${ORANGE}\h${CLEAR} ";       # host
-PS1+="${WHITE}in${CLEAR} ";
-PS1+="${MAGENTA}\w${CLEAR} ";      # working directory
-PS1+="\$(prompt_kubectl)${CLEAR}"  # kubectl context
-PS1+="\$(prompt_git)${CLEAR}";     # git repository details
-PS1+="\n";
-PS1+="${WHITE}\$ ${CLEAR}";        # `$` (and reset color)
+PS1="\[\e]0;\]\w\a";                   # terminal title
+PS1+="\[${PURPLE}\]\u\[${CLEAR}\] "    # username
+PS1+="\[${WHITE}\]at\[${CLEAR}\] "     # 'at'
+PS1+="\[${ORANGE}\]\h\[${CLEAR}\] "    # host
+PS1+="\[${WHITE}\]in\[${CLEAR}\] "     # 'in'
+PS1+="\[${MAGENTA}\]\w\[${CLEAR}\] "   # working directory
+PS1+="\$(prompt_kubectl)\[${CLEAR}\]"  # kubectl context
+PS1+="\$(prompt_git)\[${CLEAR}\]"      # git repository details
+PS1+="\n"                              # newline
+PS1+="\[${WHITE}\]\$ \[${CLEAR}\]"     # '$'
 
 if [ "$TERM" = "dumb" ]; then
 	export PS1="> "
