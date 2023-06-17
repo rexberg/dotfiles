@@ -23,6 +23,7 @@ export VIRTUALENVWRAPPER_VIRTUALENV=${HOME}/.local/bin/virtualenv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 
 # aliases
+alias ls='ls --color=auto'
 alias ll='ls --color=auto -lhF'
 alias diff='diff --color=auto'
 alias gd='git diff --color-moved'
@@ -35,6 +36,7 @@ alias cal='cal -w'
 alias shrug="echo '¯\_(ツ)_/¯'"
 alias vaultd="ansible-vault decrypt --output -"  # Set ANSIBLE_VAULT_PASSWORD_FILE env
 alias apt-update-verbose="sudo apt -o'Debug::pkgAcquire::Worker=1' update"
+alias bat="bat --style=plain"
 
 # bash-completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then
