@@ -45,6 +45,8 @@ elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion
 elif [ -f /usr/local/etc/bash_completion ]; then
 	source /usr/local/etc/bash_completion
+elif [ -f ~/.bash_completion ]; then
+	source ~/.bash_completion
 fi
 
 # ssh-agent
