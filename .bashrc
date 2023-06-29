@@ -34,9 +34,18 @@ alias svnlog='svn log --limit=10'
 alias svngrep="svn log | grep -A1 -B2 $@"
 alias cal='cal -w'
 alias shrug="echo '¯\_(ツ)_/¯'"
-alias vaultd="ansible-vault decrypt --output -"  # Set ANSIBLE_VAULT_PASSWORD_FILE env
+alias vaultd="ansible-vault decrypt --output=-"  # Set ANSIBLE_VAULT_PASSWORD_FILE env
 alias apt-update-verbose="sudo apt -o'Debug::pkgAcquire::Worker=1' update"
-alias bat="bat --style=plain"
+alias bat="batcat --paging=never --plain"
+alias gp="git pull --ff"
+alias gs="git status --verbose"
+alias gl="git log --stat --abbrev-commit"
+alias ldapsearch="ldapsearch -o ldif-wrap=no"
+
+# functions
+bathelp() {
+  "$@" --help 2>&1 | bat --paging=never --plain --language=help
+}
 
 # bash-completion
 if [ -f /usr/share/bash-completion/bash_completion ]; then

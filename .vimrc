@@ -1,3 +1,6 @@
+" Packages."
+packadd! dracula
+
 " Remember last position. "
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"zz" | endif
@@ -11,16 +14,22 @@ set shiftwidth=4
 " Enable syntax highlighting. "
 syntax on
 
+" Enable line numbers. "
+set number
+
 " Enable modeline. "
 set modeline
+
+" Split to the right by default."
+set splitright
 
 " Disable folding. "
 set nofoldenable
 
-" Change file type to cf3 for *.cf files (needed for cf3.vim syntax "
-" highlighting). "
-au BufRead,BufNewFile *.cf set ft=cf3
+" Set colorscheme."
+colorscheme dracula
 
-" Insterting timestamp with tag system in notes.txt. "
-nnoremap <F5> "=strftime("%F_%T (%Z) %A tags::")<CR>P
-inoremap <F5> <C-R>=strftime("%F_%T (%Z) %A tags::")<CR>
+" File specific settings. "
+au BufRead,BufNewFile *.cf set ft=cf3
+au BufNewFile,BufRead *.sh set softtabstop=2
+au BufNewFile,BufRead *.sh set shiftwidth=2

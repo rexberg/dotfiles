@@ -7,7 +7,7 @@
   [[default]]
     icon_bell = False
     background_color = "#282a36"
-    font = Monospace 13
+    font = Monospace 11
     foreground_color = "#f8f8f2"
     show_titlebar = False
     scrollback_infinite = True
