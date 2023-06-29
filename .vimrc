@@ -1,5 +1,7 @@
 " Packages."
 packadd! dracula
+set termguicolors
+set background=dark
 
 " Remember last position. "
 if has("autocmd")
