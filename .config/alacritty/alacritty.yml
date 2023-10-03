@@ -1,0 +1,25 @@
+import:
+  - ~/.config/alacritty/dracula.yml
+
+scrolling:
+  history: 100000
+font:
+  normal:
+    family: monospace
+    style: Regular
+  bold:
+    family: monospace
+    style: Bold
+  italic:
+    family: monospace
+    style: Italic
+  size: 11
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+selection:
+  save_to_clipboard: true
