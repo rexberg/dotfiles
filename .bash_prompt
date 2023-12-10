@@ -87,15 +87,15 @@ prompt_kubectl() {
 # Disable native virtualenv prompt
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
-PURPLE="$(tput setaf 105)"    # username
-ORANGE="$(tput setaf 214)"    # hostname
-WHITE="$(tput setaf 15)"      # prepositions
-MAGENTA="$(tput setaf 36)"    # path
-PINK=$(tput setaf 219)        # git branch
-PURPLE_2="$(tput setaf 183)"  # git status
-RED="$(tput setaf 193)"       # virtualenv prompt
-BLUE="$(tput setaf 33)"       # kubectl context
-CLEAR="$(tput sgr0)"          # unset color
+PURPLE="$(tput setaf 105)"
+ORANGE="$(tput setaf 214)"
+WHITE="$(tput setaf 15)"
+MAGENTA="$(tput setaf 36)"
+PINK="$(tput setaf 219)"
+PURPLE_2="$(tput setaf 183)"
+RED="$(tput setaf 193)"
+BLUE="$(tput setaf 33)"
+CLEAR="$(tput sgr0)"
 
 PS1="\[\e]0;\]\w\a";                      # terminal title
 PS1+="\[${PURPLE}\]\u\[${CLEAR}\] "       # username
