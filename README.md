@@ -11,3 +11,11 @@ You can install the dotfiles in your home directory using the `install` argument
 ```shell
 ./dotfiles.sh install
 ```
+
+# mkdirs.sh
+
+You can create necessary `~/.local` dirs using this script.
+
+```shell
+./mkdirs.sh
+```
