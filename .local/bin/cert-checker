@@ -9,19 +9,19 @@ usage(){ printf "Usage: %s [OPTION]... example.com\n\nRequire argument\n\n\t-p\t
 
 # Handle flags and operators.
 while getopts p:h flags; do
-	case $flags in
-	p)
-		PORT=${OPTARG}
-		;;
-	h)
-		usage
-		exit 0
-		;;
-	\?)
-		usage
-		exit 1
-		;;
-	esac
+  case $flags in
+    p)
+      PORT=${OPTARG}
+      ;;
+    h)
+      usage
+      exit 0
+      ;;
+    \?)
+      usage
+      exit 1
+      ;;
+  esac
 done
 
 shift $((OPTIND-1))
