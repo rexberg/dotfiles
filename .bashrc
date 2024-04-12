@@ -20,6 +20,9 @@ export WORKON_HOME="$HOME/.local/share/venv"
 export PROJECT_HOME="$HOME/.local/share/venv_projects"
 export VIRTUALENVWRAPPER_VIRTUALENV=${HOME}/.local/bin/virtualenv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export GCM_CREDENTIAL_STORE=cache
+export GOPATH="$HOME/.local/share/go"
+export BAT_THEME="Dracula"
 
 # aliases
 alias ls='ls --color=auto'
@@ -35,11 +38,12 @@ alias cal='cal -w'
 alias shrug="echo '¯\_(ツ)_/¯'"
 alias vaultd="ansible-vault decrypt --output=-"  # Set ANSIBLE_VAULT_PASSWORD_FILE env
 alias apt-update-verbose="sudo apt -o'Debug::pkgAcquire::Worker=1' update"
-alias bat="batcat --paging=never --plain"
+alias bat="batcat -pp"
 alias gp="git pull --ff"
 alias gs="git status --verbose"
 alias gl="git log --stat --abbrev-commit"
 alias ldapsearch="ldapsearch -o ldif-wrap=no"
+alias tssh="tsocks ssh"
 
 # functions
 bathelp() {
