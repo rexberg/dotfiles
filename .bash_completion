@@ -1,5 +1,0 @@
-#!/bin/bash
-
-if [ -d ~/.local/share/bash_completion.d ]; then
-	source ~/.local/share/bash_completion.d/*
-fi
